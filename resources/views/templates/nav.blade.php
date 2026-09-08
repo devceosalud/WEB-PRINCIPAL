@@ -1,10 +1,11 @@
   <nav id="navmenu" class="navmenu">
       <ul>
           <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#departments">Departments</a></li>
-          <li><a href="#doctors">Doctors</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#departments">Especialidades</a></li>
+          <li><a href="#doctors">Doctores</a></li>
+          {{--
           <li class="dropdown"><a href="#"><span>Dropdown</span> <i
                       class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
@@ -24,7 +25,8 @@
                   <li><a href="#">Dropdown 4</a></li>
               </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          --}}
+          <li><a href="#contact">Contactanos</a></li>
       </ul>
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
   </nav>

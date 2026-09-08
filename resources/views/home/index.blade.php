@@ -3,14 +3,16 @@
 
 @section('main')
     <header id="header" class="header sticky-top">
-
         <div class="topbar d-flex align-items-center">
             <div class="container d-flex justify-content-center justify-content-md-between">
                 <div class="d-none d-md-flex align-items-center">
-                    <i class="bi bi-clock me-1"></i> {{ Date('d') }} - {{ Date('h:i:s') }}
+                    <i class="bi bi-clock me-1"></i>
+                    Hoy: {{ now()->locale('es')->translatedFormat('l d/m/Y - H:i:s') }}
+
                 </div>
-                <div class="d-flex align-items-center">
-                    <i class="bi bi-phone me-1"></i> Llamanos al +51999444333
+                <div class="d-flex align-items-center" style="cursor: pointer"
+                    onclick="window.location.href='tel:+51913557016'">
+                    <i class="bi bi-phone me-1"></i> Llama ahora +51913557016
                 </div>
             </div>
         </div><!-- End Top Bar -->
@@ -24,45 +26,14 @@
                     <!-- <h1 class="sitename">Medicio</h1>  -->
                 </a>
 
-                <nav id="navmenu" class="navmenu">
-                    <ul>
-                        <li><a href="#hero" class="active">Home</a></li>
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#departments"></a></li>
-                        <li><a href="#doctors">Doctores</a></li>
-                        {{--
-                        <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                                <li><a href="#">Dropdown 1</a></li>
-                                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                            class="bi bi-chevron-down toggle-dropdown"></i></a>
-                                    <ul>
-                                        <li><a href="#">Deep Dropdown 1</a></li>
-                                        <li><a href="#">Deep Dropdown 2</a></li>
-                                        <li><a href="#">Deep Dropdown 3</a></li>
-                                        <li><a href="#">Deep Dropdown 4</a></li>
-                                        <li><a href="#">Deep Dropdown 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Dropdown 2</a></li>
-                                <li><a href="#">Dropdown 3</a></li>
-                                <li><a href="#">Dropdown 4</a></li>
-                            </ul>
-                        </li>
-                        --}}
-                        <li><a href="#contact">Contatanos</a></li>
-                    </ul>
-                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-                </nav>
+                {{-- NAV --}}
+                @include('templates.nav')
+                {{-- NAV --}}
 
-                <a class="cta-btn" href="index.html#appointment">Quiero una Cita</a>
 
+                <a class="cta-btn" href="#appointment">Quiero una Cita</a>
             </div>
-
         </div>
-
     </header>
 
     <main class="main">
@@ -75,33 +46,32 @@
                 <div class="carousel-item active">
                     <img src="{{ asset('assets/img/hero-carousel/hero-carousel-1.jpg') }}" alt="">
                     <div class="container">
-                        <h2>Bienvenido a Ceo Salud</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <a href="#about" class="btn-get-started">Read More</a>
+                        <h2>Bienvenido a Ceo Salud.</h2>
+                        <p>Ceosalud es un Centro Médico en Lima especializado en el diagnóstico, tratamiento y salvataje del
+                            pie diabético.</p>
+                        <a href="#about" class="btn-get-started">Saber más</a>
                     </div>
                 </div><!-- End Carousel Item -->
 
                 <div class="carousel-item">
                     <img src="{{ asset('assets/img/hero-carousel/hero-carousel-2.jpg') }}" alt="">
                     <div class="container">
-                        <h2>At vero eos et accusamus</h2>
-                        <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
-                            quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                            Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                        <a href="#about" class="btn-get-started">Read More</a>
+                        <h2>Enfoque institucional y de confianza.</h2>
+                        <p>¿Tienes una orden de amputación por pie diabético? En Ceosalud te ayudamos a evitarla. Somos
+                            expertos en salvataje de extremidades y tratamiento avanzado de heridas infectadas complejas en
+                            Lima.</p>
+                        <a href="#about" class="btn-get-started">Saber más</a>
                     </div>
                 </div><!-- End Carousel Item -->
 
                 <div class="carousel-item">
                     <img src="{{ asset('assets/img/hero-carousel/hero-carousel-3.jpg') }}" alt="">
                     <div class="container">
-                        <h2>Temporibus autem quibusdam</h2>
-                        <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur
-                            aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
-                            nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                        <a href="#about" class="btn-get-started">Read More</a>
+                        <h2>En Ceosalud luchamos junto a ti</h2>
+                        <p>En Ceosalud luchamos junto a ti para salvar tu pie y devolverte la tranquilidad. Nos
+                            especializamos en el tratamiento avanzado de heridas por pie diabético mediante protocolos
+                            médicos diseñados para prevenir amputaciones.</p>
+                        <a href="#about" class="btn-get-started">Saber más</a>
                     </div>
                 </div><!-- End Carousel Item -->
 
@@ -116,7 +86,6 @@
                 <ol class="carousel-indicators"></ol>
 
             </div>
-
         </section><!-- /Hero Section -->
 
         <!-- Featured Services Section -->
@@ -129,32 +98,36 @@
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="fas fa-heartbeat icon"></i></div>
-                            <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                            <h4><a href="" class="stretched-link">Salvataje de Pie Diabético</a></h4>
+                            <p>Evitamos amputaciones mediante tratamientos avanzados y un enfoque médico multidisciplinario.
+                            </p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="fas fa-pills icon"></i></div>
-                            <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            <h4><a href="" class="stretched-link">Control y Farmacología</a></h4>
+                            <p>Manejo especializado de medicamentos y control metabólico para estabilizar al paciente
+                                diabético.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="fas fa-thermometer icon"></i></div>
-                            <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                            <h4><a href="" class="stretched-link">Control de Infecciones</a></h4>
+                            <p>Monitoreo constante y detección temprana de signos de alerta para detener el avance
+                                infeccioso.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="fas fa-dna icon"></i></div>
-                            <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                            <h4><a href="" class="stretched-link">Medicina Avanzada</a></h4>
+                            <p>Aplicación de protocolos médicos modernos y terapias biológicas para la regeneración celular
+                                del pie.</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -166,82 +139,113 @@
 
         <!-- Call To Action Section -->
         <section id="call-to-action" class="call-to-action section accent-background">
-
             <div class="container">
                 <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
                     <div class="col-xl-10">
                         <div class="text-center">
-                            <h3>In an emergency? Need help now?</h3>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum.</p>
-                            <a class="cta-btn" href="#appointment">Make an Appointment</a>
+                            <h3>¿Enfrentas una emergencia por Pie Diabético?</h3>
+                            <p>No pongas en riesgo tu movilidad. Nuestro equipo de expertos en Lima está listo para
+                                intervenir de inmediato con tratamientos avanzados de salvataje para evitar amputaciones y
+                                detener infecciones graves.</p>
+                            <a class="cta-btn" target="_blank" rel="noopener noreferrer"
+                                href="https://web.whatsapp.com/send?phone=51913557016&text=Hola%2C%20CEO%20Salud.%20Visité%20su%20página%20web%20y%20me%20gustaría%20recibir%20orientación%20sobre%20qué%20especialidad%20necesito.">Agendar
+                                Cita de Emergencia</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- /Call To Action Section -->
 
-        </section><!-- /Call To Action Section -->
 
         <!-- About Section -->
         <section id="about" class="about section">
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>About Us<br></h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
+            <!-- About Section -->
+            <section id="about" class="about section">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Sobre Nosotros<br></h2>
+                    <p>Atención médica especializada con un enfoque integral, humano y multidisciplinario.</p>
+                </div><!-- End Section Title -->
 
-            <div class="container">
+                <div class="container">
 
-                <div class="row gy-4">
-                    <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-                        <img src="assets/img/about.jpg" class="img-fluid" alt="">
-                        <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+                    <div class="row gy-4">
+                        <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+                            <img src="assets/img/about.jpg" class="img-fluid"
+                                alt="CEO Salud - Centro Médico Especializado">
+                            <a href="https://www.youtube.com/watch?v=UNTLPt7tSLU"
+                                class="glightbox pulsating-play-btn"></a>
+                        </div>
+
+                        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+
+                            <h3>Atención especializada para cuidar tu salud y proteger tu movilidad.</h3>
+
+                            <p class="fst-italic">
+                                En CEO Salud brindamos atención médica especializada con un enfoque integral,
+                                combinando experiencia profesional, tecnología y un equipo multidisciplinario
+                                para ofrecer tratamientos personalizados.
+                            </p>
+
+                            <ul>
+                                <li>
+                                    <i class="bi bi-check2-all"></i>
+                                    <span>
+                                        Especialistas en prevención y tratamiento del pie diabético,
+                                        úlceras y heridas de difícil cicatrización.
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <i class="bi bi-check2-all"></i>
+                                    <span>
+                                        Atención integral en traumatología, ortopedia y medicina física
+                                        y rehabilitación.
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <i class="bi bi-check2-all"></i>
+                                    <span>
+                                        Equipo multidisciplinario integrado por especialistas en traumatología,
+                                        endocrinología, cardiología, fisioterapia, podología, nutrición y otras
+                                        áreas de la salud.
+                                    </span>
+                                </li>
+                            </ul>
+
+                            <p>
+                                Nuestro objetivo es brindar una atención cercana y especializada,
+                                acompañando a cada paciente durante su proceso de diagnóstico,
+                                tratamiento y recuperación. Contamos con servicios de manejo de heridas,
+                                laboratorio, radiografías, ecografías, fisioterapia y otros servicios
+                                complementarios en una misma sede.
+                            </p>
+
+                        </div>
                     </div>
-                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore
-                            magna aliqua.
-                        </p>
-                        <ul>
-                            <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</span></li>
-                            <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.</span></li>
-                            <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                    storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                        </ul>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident
-                        </p>
-                    </div>
+
                 </div>
 
-            </div>
+            </section> <!-- /About Section -->
 
-        </section><!-- /About Section -->
+        </section>
+        <!-- /About Section -->
 
         <!-- Stats Section -->
         <section id="stats" class="stats section">
-
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-
                 <div class="row gy-4">
 
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-user-md flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Doctors</p>
+                                <p>Doctores</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -250,9 +254,9 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="far fa-hospital flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Departments</p>
+                                <p>Especialidades</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -261,9 +265,9 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-flask flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Research Labs</p>
+                                <p>Laboratorio</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
@@ -272,584 +276,813 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="fas fa-award flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
+                                <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1"
                                     class="purecounter"></span>
-                                <p>Awards</p>
+                                <p>Certificado</p>
                             </div>
                         </div>
                     </div><!-- End Stats Item -->
-
                 </div>
-
             </div>
-
         </section><!-- /Stats Section -->
 
         <!-- Features Section -->
         <section id="features" class="features section">
-
             <div class="container">
-
                 <div class="row justify-content-around gy-4">
-                    <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img
-                            src="{{ asset('assets/img/features.jpg') }}" alt=""></div>
+
+                    <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <img src="{{ asset('assets/img/features.jpg') }}"
+                            alt="Atención médica especializada en CEO Salud">
+                    </div>
 
                     <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-up"
                         data-aos-delay="200">
-                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed
-                            minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi</p>
+
+                        <h3>Atención especializada enfocada en la recuperación y bienestar de nuestros pacientes</h3>
+
+                        <p>
+                            En CEO Salud contamos con un equipo multidisciplinario que trabaja de manera
+                            integral para brindar atención especializada, diagnóstico oportuno y
+                            tratamientos personalizados.
+                        </p>
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
                             <i class="fa-solid fa-hand-holding-medical flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
-                                    occaecati cupiditate non provident</p>
+                                <h4>
+                                    <a href="" class="stretched-link">Prevención y tratamiento del pie
+                                        diabético</a>
+                                </h4>
+                                <p>
+                                    Brindamos atención especializada para el manejo de heridas y lesiones
+                                    relacionadas con el pie diabético, orientada a prevenir complicaciones
+                                    y reducir el riesgo de amputaciones.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="400">
                             <i class="fa-solid fa-suitcase-medical flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-                                    voluptatum deleniti atque</p>
+                                <h4>
+                                    <a href="" class="stretched-link">Atención médica integral</a>
+                                </h4>
+                                <p>
+                                    Integramos diferentes especialidades y servicios de apoyo para ofrecer
+                                    una evaluación completa y un tratamiento adecuado para cada paciente.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="500">
                             <i class="fa-solid fa-staff-snake flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Dine Pad</a></h4>
-                                <p>Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut
-                                    deserunt minus aut eligendi omnis</p>
+                                <h4>
+                                    <a href="" class="stretched-link">Equipo multidisciplinario</a>
+                                </h4>
+                                <p>
+                                    Contamos con profesionales de distintas áreas de la salud que trabajan
+                                    de manera coordinada para acompañar al paciente durante su proceso de
+                                    diagnóstico, tratamiento y recuperación.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
 
                         <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="600">
-                            <i class="fa-solid fa-lungs flex-shrink-0"></i>
+                            <i class="fa-solid fa-person-walking flex-shrink-0"></i>
                             <div>
-                                <h4><a href="" class="stretched-link">Tride clov</a></h4>
-                                <p>Est voluptatem labore deleniti quis a delectus et. Saepe dolorem libero sit non
-                                    aspernatur odit amet. Et eligendi</p>
+                                <h4>
+                                    <a href="" class="stretched-link">Traumatología y rehabilitación</a>
+                                </h4>
+                                <p>
+                                    Ofrecemos servicios especializados en traumatología, ortopedia,
+                                    fisioterapia y rehabilitación para ayudar a nuestros pacientes a
+                                    recuperar su movilidad y calidad de vida.
+                                </p>
                             </div>
                         </div><!-- End Icon Box -->
-
                     </div>
                 </div>
-
             </div>
+        </section>
+        <!-- /Features Section -->
 
-        </section><!-- /Features Section -->
 
         <!-- Services Section -->
         <section id="services" class="services section">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Servicios</h2>
+                <p>
+                    Contamos con servicios médicos y auxiliares especializados para brindar una
+                    atención integral, segura y oportuna a nuestros pacientes.
+                </p>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- Manejo de heridas -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-hand-holding-medical"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Manejo de heridas</h3>
+                            </a>
+
+                            <p>
+                                Curación, evaluación y seguimiento especializado de heridas,
+                                con atención orientada a favorecer una adecuada recuperación.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+
+                    <!-- Laboratorio -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Laboratorio</h3>
+                            </a>
+
+                            <p>
+                                Realizamos análisis clínicos como apoyo al diagnóstico y
+                                seguimiento médico, con resultados oportunos.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+
+                    <!-- Radiografías -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-x-ray"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Radiografías</h3>
+                            </a>
+
+                            <p>
+                                Estudios de imágenes diagnósticas que permiten evaluar
+                                estructuras óseas y apoyar la valoración médica.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+
+                    <!-- Ecografías -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-wave-square"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Ecografías</h3>
+                            </a>
+
+                            <p>
+                                Estudios mediante ultrasonido que permiten obtener imágenes
+                                para complementar el diagnóstico médico.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+
+                    <!-- Colocación y retiro de yeso -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-bandage"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Colocación y retiro de yeso</h3>
+                            </a>
+
+                            <p>
+                                Atención ortopédica para la colocación y retiro de yesos,
+                                realizada de manera segura y bajo supervisión profesional.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+
+                    <!-- Infiltraciones -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-syringe"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Infiltraciones</h3>
+                            </a>
+
+                            <p>
+                                Tratamientos locales utilizados para el manejo del dolor
+                                y determinadas afecciones articulares, según evaluación médica.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+
+
+                    <!-- Plantillas -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
+                        <div class="service-item position-relative">
+                            <div class="icon">
+                                <i class="fas fa-shoe-prints"></i>
+                            </div>
+
+                            <a href="#" class="stretched-link">
+                                <h3>Plantillas</h3>
+                            </a>
+
+                            <p>
+                                Elaboración de plantillas y ortesis personalizadas de acuerdo
+                                con las necesidades y características de cada paciente.
+                            </p>
+                        </div>
+                    </div><!-- End Service Item -->
+                </div>
+            </div>
+        </section>
+        <!-- /Services Section -->
+
+
+        <!-- Appointment Section -->
+        <section id="appointment" class="appointment section light-background">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Solicita tu cita</h2>
+                <p>
+                    Agenda una consulta con nuestros especialistas y recibe la atención
+                    que necesitas de manera oportuna y personalizada.
+                </p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <form action="#" method="post" role="form" class="php-email-form">
+                    <div class="row">
+
+                        <!-- Nombre -->
+                        <div class="col-md-4 form-group">
+                            <input type="text" name="name" class="form-control" id="name"
+                                placeholder="Nombre completo" required>
+                        </div>
+
+                        <!-- Correo -->
+                        <div class="col-md-4 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="email" id="email"
+                                placeholder="Correo electrónico" required>
+                        </div>
+
+                        <!-- Teléfono -->
+                        <div class="col-md-4 form-group mt-3 mt-md-0">
+                            <input type="tel" class="form-control" name="phone" id="phone"
+                                placeholder="Número de teléfono" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Fecha -->
+                        <div class="col-md-4 form-group mt-3">
+                            <input type="datetime-local" name="date" class="form-control datepicker" id="date"
+                                required>
+                        </div>
+
+                        <!-- Especialidad -->
+                        <div class="col-md-4 form-group mt-3">
+                            <select name="department" id="department" class="form-select" required>
+
+                                <option value="">Selecciona una especialidad</option>
+
+                                <option value="Traumatología">
+                                    Traumatología
+                                </option>
+
+                                <option value="Medicina Física y Rehabilitación">
+                                    Medicina Física y Rehabilitación
+                                </option>
+
+                                <option value="Endocrinología">
+                                    Endocrinología
+                                </option>
+
+                                <option value="Cardiología">
+                                    Cardiología
+                                </option>
+
+                                <option value="Radiología">
+                                    Radiología
+                                </option>
+
+                                <option value="Fisioterapia">
+                                    Fisioterapia
+                                </option>
+
+                                <option value="Podología">
+                                    Podología
+                                </option>
+
+                                <option value="Psicología">
+                                    Psicología
+                                </option>
+
+                                <option value="Nutrición">
+                                    Nutrición
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- Especialista -->
+                        <div class="col-md-4 form-group mt-3">
+                            <select name="doctor" id="doctor" class="form-select" required>
+
+                                <option value="">
+                                    Selecciona un especialista
+                                </option>
+
+                                <option value="Especialista 1">
+                                    Especialista 1
+                                </option>
+
+                                <option value="Especialista 2">
+                                    Especialista 2
+                                </option>
+
+                                <option value="Especialista 3">
+                                    Especialista 3
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" name="message" rows="5"
+                            placeholder="Cuéntanos brevemente el motivo de tu consulta (opcional)"></textarea>
+                    </div>
+
+                    <div class="mt-3">
+                        <div class="loading">
+                            Enviando solicitud...
+                        </div>
+
+                        <div class="error-message"></div>
+
+                        <div class="sent-message">
+                            ¡Tu solicitud de cita fue enviada correctamente!
+                            Nuestro equipo se pondrá en contacto contigo para confirmar
+                            la disponibilidad.
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit">
+                                Solicitar cita
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- /Appointment Section -->
+
+
+
+        <!-- Tabs Section -->
+        <section id="departments" class="tabs section">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Especialidades</h2>
+                <p>
+                    Atención especializada y multidisciplinaria para cuidar tu salud de manera integral.
+                </p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <ul class="nav nav-tabs flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active show" data-bs-toggle="tab" href="#tabs-tab-1">
+                                    Traumatología
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-2">
+                                    Medicina Física y Rehabilitación
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-3">
+                                    Endocrinología
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-4">
+                                    Cardiología
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-5">
+                                    Radiología
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-6">
+                                    Fisioterapia
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-7">
+                                    Podología
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-8">
+                                    Psicología
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-9">
+                                    Nutrición
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-9 mt-4 mt-lg-0">
+                        <div class="tab-content">
+                            <!-- Traumatología -->
+                            <div class="tab-pane active show" id="tabs-tab-1">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Traumatología</h3>
+
+                                        <p class="fst-italic">
+                                            Atención integral del aparato locomotor.
+                                        </p>
+
+                                        <p>
+                                            Evaluación y tratamiento especializado de lesiones,
+                                            enfermedades y alteraciones del sistema musculoesquelético,
+                                            con un enfoque orientado a recuperar la movilidad y
+                                            mejorar la calidad de vida del paciente.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-1.jpg') }}" alt="Traumatología"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Medicina Física y Rehabilitación -->
+                            <div class="tab-pane" id="tabs-tab-2">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Medicina Física y Rehabilitación</h3>
+
+                                        <p class="fst-italic">
+                                            Recupera tu funcionalidad con especialistas.
+                                        </p>
+
+                                        <p>
+                                            Atención enfocada en la recuperación de la movilidad,
+                                            funcionalidad y autonomía de los pacientes mediante
+                                            programas de rehabilitación adaptados a sus necesidades.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-2.jpg') }}"
+                                            alt="Medicina Física y Rehabilitación" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Endocrinología -->
+                            <div class="tab-pane" id="tabs-tab-3">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Endocrinología</h3>
+
+                                        <p class="fst-italic">
+                                            Control de diabetes, tiroides y hormonas.
+                                        </p>
+
+                                        <p>
+                                            Evaluación y seguimiento de enfermedades relacionadas
+                                            con el sistema endocrino y metabólico, incluyendo
+                                            diabetes y alteraciones de la tiroides y otras hormonas.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-3.jpg') }}" alt="Endocrinología"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Cardiología -->
+                            <div class="tab-pane" id="tabs-tab-4">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Cardiología</h3>
+
+                                        <p class="fst-italic">
+                                            Cuidado integral de tu salud cardiovascular.
+                                        </p>
+
+                                        <p>
+                                            Evaluación, prevención y seguimiento de las principales
+                                            condiciones cardiovasculares, promoviendo el cuidado
+                                            integral de la salud del corazón y los vasos sanguíneos.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-4.jpg') }}" alt="Cardiología"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Radiología -->
+                            <div class="tab-pane" id="tabs-tab-5">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Radiología</h3>
+
+                                        <p class="fst-italic">
+                                            Diagnóstico por imágenes de alta precisión.
+                                        </p>
+
+                                        <p>
+                                            Estudios de diagnóstico por imágenes que permiten
+                                            complementar la evaluación médica y obtener información
+                                            útil para determinar el diagnóstico y tratamiento.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-5.jpg') }}" alt="Radiología"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Fisioterapia -->
+                            <div class="tab-pane" id="tabs-tab-6">
+                                <div class="row">
+
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Fisioterapia</h3>
+
+                                        <p class="fst-italic">
+                                            Tratamiento físico y recuperación muscular.
+                                        </p>
+
+                                        <p>
+                                            Terapias orientadas a mejorar la movilidad, disminuir
+                                            molestias y favorecer la recuperación funcional de
+                                            músculos y articulaciones.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-6.jpg') }}" alt="Fisioterapia"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Podología -->
+                            <div class="tab-pane" id="tabs-tab-7">
+                                <div class="row">
+
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Podología</h3>
+
+                                        <p class="fst-italic">
+                                            Salud y cuidado especializado del pie.
+                                        </p>
+
+                                        <p>
+                                            Atención especializada para la prevención, cuidado y
+                                            tratamiento de diferentes afecciones del pie, con especial
+                                            atención a pacientes que requieren un manejo preventivo.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-7.jpg') }}" alt="Podología"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Psicología -->
+                            <div class="tab-pane" id="tabs-tab-8">
+                                <div class="row">
+
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Psicología</h3>
+
+                                        <p class="fst-italic">
+                                            Bienestar mental con profesionales especializados.
+                                        </p>
+
+                                        <p>
+                                            Acompañamiento psicológico orientado al bienestar
+                                            emocional y al desarrollo de herramientas para afrontar
+                                            diferentes situaciones personales y de salud.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-8.jpg') }}" alt="Psicología"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Nutrición -->
+                            <div class="tab-pane" id="tabs-tab-9">
+                                <div class="row">
+                                    <div class="col-lg-8 details order-2 order-lg-1">
+                                        <h3>Nutrición</h3>
+
+                                        <p class="fst-italic">
+                                            Planes alimenticios personalizados para ti.
+                                        </p>
+
+                                        <p>
+                                            Orientación nutricional personalizada de acuerdo con
+                                            las necesidades, objetivos y características de cada
+                                            paciente, promoviendo hábitos saludables y una adecuada
+                                            alimentación.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                                        <img src="{{ asset('assets/img/departments-9.jpg') }}" alt="Nutrición"
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Tabs Section -->
+
+
+
+        {{-- TESTIMONIALES 
+        @include('templates.testimoniales')
+         TESTIMONIALES --}}
+
+        <!-- Doctors Section -->
+        <section id="doctors" class="doctors section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Services</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <h2>Nuestros especialistas</h2>
+                <p> Profesionales de la salud comprometidos con brindarte una atención especializada, cercana y enfocada en
+                    tus necesidades. </p>
             </div><!-- End Section Title -->
 
             <div class="container">
 
                 <div class="row gy-4">
 
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-item  position-relative">
-                            <div class="icon">
-                                <i class="fas fa-heartbeat"></i>
-                            </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Nesciunt Mete</h3>
-                            </a>
-                            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores
-                                iure perferendis tempore et consequatur.</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="fas fa-pills"></i>
-                            </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Eosle Commodi</h3>
-                            </a>
-                            <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum
-                                hic non ut nesciunt dolorem.</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="fas fa-hospital-user"></i>
-                            </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Ledo Markt</h3>
-                            </a>
-                            <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id
-                                voluptas adipisci eos earum corrupti.</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="fas fa-dna"></i>
-                            </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Asperiores Commodit</h3>
-                            </a>
-                            <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga
-                                sit provident adipisci neque.</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="fas fa-wheelchair"></i>
-                            </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Velit Doloremque</h3>
-                            </a>
-                            <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed
-                                animi at autem alias eius labore.</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-item position-relative">
-                            <div class="icon">
-                                <i class="fas fa-notes-medical"></i>
-                            </div>
-                            <a href="#" class="stretched-link">
-                                <h3>Dolori Architecto</h3>
-                            </a>
-                            <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure.
-                                Corrupti recusandae ducimus enim.</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Services Section -->
-
-        <!-- Appointment Section -->
-        <section id="appointment" class="appointment section light-background">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>MAKE AN APPOINTMENT</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
-                    <div class="row">
-                        <div class="col-md-4 form-group">
-                            <input type="text" name="name" class="form-control" id="name"
-                                placeholder="Your Name" required="">
-                        </div>
-                        <div class="col-md-4 form-group mt-3 mt-md-0">
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="Your Email" required="">
-                        </div>
-                        <div class="col-md-4 form-group mt-3 mt-md-0">
-                            <input type="tel" class="form-control" name="phone" id="phone"
-                                placeholder="Your Phone" required="">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 form-group mt-3">
-                            <input type="datetime-local" name="date" class="form-control datepicker" id="date"
-                                placeholder="Appointment Date" required="">
-                        </div>
-                        <div class="col-md-4 form-group mt-3">
-                            <select name="department" id="department" class="form-select" required="">
-                                <option value="">Select Department</option>
-                                <option value="Department 1">Department 1</option>
-                                <option value="Department 2">Department 2</option>
-                                <option value="Department 3">Department 3</option>
-                            </select>
-                        </div>
-                        <div class="col-md-4 form-group mt-3">
-                            <select name="doctor" id="doctor" class="form-select" required="">
-                                <option value="">Select Doctor</option>
-                                <option value="Doctor 1">Doctor 1</option>
-                                <option value="Doctor 2">Doctor 2</option>
-                                <option value="Doctor 3">Doctor 3</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-                    </div>
-                    <div class="mt-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-                        <div class="text-center"><button type="submit">Make an Appointment</button></div>
-                    </div>
-                </form>
-
-            </div>
-
-        </section><!-- /Appointment Section -->
-
-        <!-- Tabs Section -->
-        <section id="tabs" class="tabs section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Departments</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row">
-                    <div class="col-lg-3">
-                        <ul class="nav nav-tabs flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active show" data-bs-toggle="tab" href="#tabs-tab-1">Cardiology</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-2">Neurology</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-3">Hepatology</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-4">Pediatrics</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#tabs-tab-5">Ophthalmologists</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-9 mt-4 mt-lg-0">
-                        <div class="tab-content">
-                            <div class="tab-pane active show" id="tabs-tab-1">
-                                <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>Cardiology</h3>
-                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
-                                            dila parde sonata raqer a videna mareta paulona marka</p>
-                                        <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint.
-                                            Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est
-                                            repellat minima eveniet eius et quis magni nihil. Consequatur dolorem
-                                            quaerat quos qui similique accusamus nostrum rem vero</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="{{ asset('assets/img/departments-1.jpg') }}" alt=""
-                                            class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-tab-2">
-                                <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>Neurology</h3>
-                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente
-                                            dila parde sonata raqer a videna mareta paulona marka</p>
-                                        <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et
-                                            reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et
-                                            velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto
-                                            madirna desera vafle de nideran pal</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="{{ asset('assets/img/departments-2.jpg') }}" alt=""
-                                            class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-tab-3">
-                                <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>Hepatology</h3>
-                                        <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non
-                                            enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat
-                                            perferendis aut</p>
-                                        <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis
-                                            quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima
-                                            molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam.
-                                            Soluta et harum voluptatem optio quae</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="{{ asset('assets/img/departments-3.jpg') }}" alt=""
-                                            class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-tab-4">
-                                <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>Pediatrics</h3>
-                                        <p class="fst-italic">Totam aperiam accusamus. Repellat consequuntur iure
-                                            voluptas iure porro quis delectus</p>
-                                        <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam
-                                            necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in
-                                            consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam
-                                            quia a laborum inventore</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="{{ asset('assets/img/departments-4.jpg') }}" alt=""
-                                            class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tabs-tab-5">
-                                <div class="row">
-                                    <div class="col-lg-8 details order-2 order-lg-1">
-                                        <h3>Ophthalmologists</h3>
-                                        <p class="fst-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro
-                                            quia.</p>
-                                        <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis
-                                            recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui
-                                            quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
-                                    </div>
-                                    <div class="col-lg-4 text-center order-1 order-lg-2">
-                                        <img src="{{ asset('assets/img/departments-5.jpg') }}" alt=""
-                                            class="img-fluid">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section><!-- /Tabs Section -->
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Testimonials</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="swiper init-swiper" data-speed="600" data-delay="5000"
-                    data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }">
-                    <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 20
-                }
-              }
-            }
-          </script>
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item" "="">
-                            <p>
-                              <i class=" bi bi-quote quote-icon-left"></i>
-                                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                                <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                                <img src="{{ asset('assets/img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
-                              </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <p>
-                                  <i class="bi bi-quote quote-icon-left"></i>
-                                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                                  <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                                <img src="{{ asset('assets/img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                              </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <p>
-                                  <i class="bi bi-quote quote-icon-left"></i>
-                                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                                  <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                                <img src="{{ asset('assets/img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                              </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <p>
-                                  <i class="bi bi-quote quote-icon-left"></i>
-                                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                                  <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                                <img src="{{ asset('assets/img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                              </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="swiper-slide">
-                              <div class="testimonial-item">
-                                <p>
-                                  <i class="bi bi-quote quote-icon-left"></i>
-                                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                                  <i class="bi bi-quote quote-icon-right"></i>
-                                </p>
-                                <img src="{{ asset('assets/img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                              </div>
-                            </div><!-- End testimonial item -->
-
-                          </div>
-                          <div class="swiper-pagination"></div>
-                        </div>
-
-                      </div>
-
-                    </section><!-- /Testimonials Section -->
-
-                    <!-- Doctors Section -->
-                    <section id="doctors" class="doctors section light-background">
-
-                      <!-- Section Title -->
-                      <div class="container section-title" data-aos="fade-up">
-                        <h2>Doctors</h2>
-                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-                      </div><!-- End Section Title -->
-
-                      <div class="container">
-
-                        <div class="row gy-4">
-
-                          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                            <div class="team-member">
-                              <div class="member-img">
-                                <img src="{{ asset('assets/img/doctors/doctors-1.jpg') }}" class="img-fluid" alt="">
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('assets/img/doctors/doctors-1.jpg') }}" class="img-fluid"
+                                    alt="">
                                 <div class="social">
-                                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                                  <a href=""><i class="bi bi-facebook"></i></a>
-                                  <a href=""><i class="bi bi-instagram"></i></a>
-                                  <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
-                              </div>
-                              <div class="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Medical Officer</span>
-                              </div>
                             </div>
-                          </div><!-- End Team Member -->
+                            <div class="member-info">
+                                <h4>Dr Julio Quiroz</h4>
+                                <span>Médico Especialista</span>
+                            </div>
+                        </div>
+                    </div><!-- End Team Member -->
 
-                          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                            <div class="team-member">
-                              <div class="member-img">
-                                <img src="{{ asset('assets/img/doctors/doctors-2.jpg') }}" class="img-fluid" alt="">
+                    {{--
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('assets/img/doctors/doctors-2.jpg') }}" class="img-fluid"
+                                    alt="">
                                 <div class="social">
-                                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                                  <a href=""><i class="bi bi-facebook"></i></a>
-                                  <a href=""><i class="bi bi-instagram"></i></a>
-                                  <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
-                              </div>
-                              <div class="member-info">
+                            </div>
+                            <div class="member-info">
                                 <h4>Sarah Jhonson</h4>
                                 <span>Anesthesiologist</span>
-                              </div>
                             </div>
-                          </div><!-- End Team Member -->
+                        </div>
+                    </div><!-- End Team Member -->
 
-                          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                            <div class="team-member">
-                              <div class="member-img">
-                                <img src="{{ asset('assets/img/doctors/doctors-3.jpg') }}" class="img-fluid" alt="">
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('assets/img/doctors/doctors-3.jpg') }}" class="img-fluid"
+                                    alt="">
                                 <div class="social">
-                                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                                  <a href=""><i class="bi bi-facebook"></i></a>
-                                  <a href=""><i class="bi bi-instagram"></i></a>
-                                  <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
-                              </div>
-                              <div class="member-info">
+                            </div>
+                            <div class="member-info">
                                 <h4>William Anderson</h4>
                                 <span>Cardiology</span>
-                              </div>
                             </div>
-                          </div><!-- End Team Member -->
+                        </div>
+                    </div><!-- End Team Member -->
 
-                          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-                            <div class="team-member">
-                              <div class="member-img">
-                                <img src="{{ asset('assets/img/doctors/doctors-4.jpg') }}" class="img-fluid" alt="">
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ asset('assets/img/doctors/doctors-4.jpg') }}" class="img-fluid"
+                                    alt="">
                                 <div class="social">
-                                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                                  <a href=""><i class="bi bi-facebook"></i></a>
-                                  <a href=""><i class="bi bi-instagram"></i></a>
-                                  <a href=""><i class="bi bi-linkedin"></i></a>
+                                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
                                 </div>
-                              </div>
-                              <div class="member-info">
+                            </div>
+                            <div class="member-info">
                                 <h4>Amanda Jepson</h4>
                                 <span>Neurosurgeon</span>
-                              </div>
                             </div>
-                          </div><!-- End Team Member -->
-
                         </div>
+                    </div><!-- End Team Member -->
+                    --}}
+                </div>
+            </div>
+        </section>
+        <!-- /Doctors Section -->
 
-                      </div>
 
-                    </section><!-- /Doctors Section -->
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery section">
 
-                    <!-- Gallery Section -->
-                    <section id="gallery" class="gallery section">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Galería</h2>
+                <p> Conoce nuestras instalaciones, servicios y el entorno donde brindamos atención especializada a nuestros
+                    pacientes. </p>
+            </div><!-- End Section Title -->
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                      <!-- Section Title -->
-                      <div class="container section-title" data-aos="fade-up">
-                        <h2>Gallery</h2>
-                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-                      </div><!-- End Section Title -->
-
-                      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                        <div class="swiper init-swiper">
-                          <script type="application/json" class="swiper-config">
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
             {
               "loop": true,
               "speed": 600,
@@ -879,24 +1112,48 @@
               }
             }
           </script>
-                          <div class="swiper-wrapper align-items-center">
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-1.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-1.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-2.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-2.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-3.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-3.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-4.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-4.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-5.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-5.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-6.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-6.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-7.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-7.jpg') }}" class="img-fluid" alt=""></a></div>
-                            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ asset('assets/img/gallery/gallery-8.jpg') }}"><img src="{{ asset('assets/img/gallery/gallery-8.jpg') }}" class="img-fluid" alt=""></a></div>
-                          </div>
-                          <div class="swiper-pagination"></div>
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-1.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-1.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-2.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-2.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-3.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-3.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-4.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-4.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-5.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-5.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-6.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-6.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-7.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-7.jpg') }}" class="img-fluid"
+                                    alt=""></a></div>
+                        <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                                href="{{ asset('assets/img/gallery/gallery-8.jpg') }}"><img
+                                    src="{{ asset('assets/img/gallery/gallery-8.jpg') }}" class="img-fluid"
+                                    alt=""></a>
                         </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section><!-- /Gallery Section -->
 
-                      </div>
 
-                    </section><!-- /Gallery Section -->
-
-                    {{-- Pricing Section
+        {{-- Pricing Section  
             <section id="pricing" class="pricing section">
 
               <!-- Section Title -->
@@ -977,248 +1234,349 @@
                       </div>
                     </div>
                   </div><!-- End Pricing Item -->
-
                 </div>
-
               </div>
-
             </section>
-            Pricing Section --}}
+            Pricing Section  --}}
 
-                    <!-- Faq Section -->
-                    <section id="faq" class="faq section light-background">
 
-                      <!-- Section Title -->
-                      <div class="container section-title" data-aos="fade-up">
-                        <h2>Frequently Asked Questions</h2>
-                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-                      </div><!-- End Section Title -->
+        <!-- Faq Section -->
+        <section id="faq" class="faq section light-background">
 
-                      <div class="container">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Preguntas Frecuentes</h2>
+                <p>
+                    Encuentra respuestas a las preguntas más frecuentes de nuestros pacientes
+                    sobre nuestros servicios, especialidades y atención médica.
+                </p>
+            </div><!-- End Section Title -->
 
-                        <div class="row justify-content-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
 
-                          <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-
-                            <div class="faq-container">
-
-                              <div class="faq-item">
-                                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <h3>¿Qué especialidades médicas atiende CEO Salud?</h3>
                                 <div class="faq-content">
-                                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                                    <p>
+                                        Contamos con diferentes especialidades para brindar una
+                                        atención integral, entre ellas Traumatología, Medicina Física
+                                        y Rehabilitación, Endocrinología, Cardiología, Radiología,
+                                        Fisioterapia, Podología, Psicología y Nutrición.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
-                              </div><!-- End Faq item-->
+                            </div><!-- End Faq item-->
 
-                              <div class="faq-item">
-                                <h3>Feugiat scelerisque varius morbi enim nunc faucibus?</h3>
+                            <div class="faq-item">
+                                <h3>¿CEO Salud atiende pacientes con pie diabético?</h3>
                                 <div class="faq-content">
-                                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>
+                                        Sí. Brindamos atención especializada para pacientes con
+                                        pie diabético, incluyendo evaluación, manejo de heridas,
+                                        curaciones y seguimiento médico. La atención oportuna ayuda
+                                        a prevenir complicaciones y favorecer una adecuada recuperación.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
-                              </div><!-- End Faq item-->
+                            </div><!-- End Faq item-->
 
-                              <div class="faq-item">
-                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                            <div class="faq-item">
+                                <h3>¿Qué servicios médicos y auxiliares ofrece CEO Salud?</h3>
                                 <div class="faq-content">
-                                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                                    <p>
+                                        Ofrecemos manejo de heridas, laboratorio, radiografías,
+                                        ecografías, colocación y retiro de yeso, infiltraciones
+                                        y elaboración de plantillas y ortesis personalizadas.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
-                              </div><!-- End Faq item-->
+                            </div><!-- End Faq item-->
 
-                              <div class="faq-item">
-                                <h3>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h3>
+                            <div class="faq-item">
+                                <h3>¿Necesito una cita previa para atenderme?</h3>
                                 <div class="faq-content">
-                                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>
+                                        Recomendamos coordinar una cita previamente para conocer
+                                        la disponibilidad del especialista y organizar tu atención.
+                                        Puedes comunicarte con nuestro equipo para consultar horarios
+                                        y disponibilidad.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
-                              </div><!-- End Faq item-->
+                            </div><!-- End Faq item-->
 
-                              <div class="faq-item">
-                                <h3>Tempus quam pellentesque nec nam aliquam sem et tortor?</h3>
+                            <div class="faq-item">
+                                <h3>¿Puedo realizarme estudios de laboratorio e imágenes en CEO Salud?</h3>
                                 <div class="faq-content">
-                                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                                    <p>
+                                        Sí. Contamos con servicios de laboratorio, radiografías y
+                                        ecografías que pueden complementar la evaluación médica.
+                                        Consulta previamente por el estudio que necesitas y sus
+                                        indicaciones.
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
-                              </div><!-- End Faq item-->
+                            </div><!-- End Faq item-->
 
-                              <div class="faq-item">
-                                <h3>Perspiciatis quod quo quos nulla quo illum ullam?</h3>
+
+                            <div class="faq-item">
+                                <h3>¿CEO Salud cuenta con servicios de rehabilitación y fisioterapia?</h3>
+
                                 <div class="faq-content">
-                                  <p>Enim ea facilis quaerat voluptas quidem et dolorem. Quis et consequatur non sed in suscipit sequi. Distinctio ipsam dolore et.</p>
+                                    <p>
+                                        Sí. Contamos con Medicina Física y Rehabilitación y Fisioterapia,
+                                        orientadas a favorecer la recuperación funcional, mejorar la
+                                        movilidad y acompañar al paciente durante su proceso de recuperación.
+                                    </p>
+                                </div>
+
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item -->
+
+
+                            <div class="faq-item">
+                                <h3>¿Las plantillas son personalizadas para cada paciente?</h3>
+
+                                <div class="faq-content">
+                                    <p>
+                                        Sí. Las plantillas y ortesis se elaboran considerando las
+                                        características y necesidades de cada paciente, buscando
+                                        brindar un soporte adecuado de acuerdo con su evaluación.
+                                    </p>
+                                </div>
+
+                                <i class="faq-toggle bi bi-chevron-right"></i>
+                            </div><!-- End Faq item -->
+
+                            <div class="faq-item">
+                                <h3>¿Cómo puedo saber qué especialidad necesito?</h3>
+                                <div class="faq-content">
+                                    <p>
+                                        Si no estás seguro de qué especialista consultar, puedes
+                                        comunicarte con nuestro equipo de atención. Te orientaremos
+                                        de acuerdo con el motivo de tu consulta para ayudarte a
+                                        identificar el servicio más adecuado.
+
+                                        <a href="https://web.whatsapp.com/send?phone=51913557016&text=Hola%2C%20CEO%20Salud.%20Visité%20su%20página%20web%20y%20me%20gustaría%20recibir%20orientación%20sobre%20qué%20especialidad%20necesito."
+                                            class="cta-btn" target="_blank" rel="noopener noreferrer">
+                                            <i class="bi bi-whatsapp"></i>
+                                            Hablar con un asesor
+                                        </a>
+                                    </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
-                              </div><!-- End Faq item-->
-
-                            </div>
-
-                          </div><!-- End Faq Column-->
-
+                            </div><!-- End Faq item-->
                         </div>
+                    </div><!-- End Faq Column-->
+                </div>
+            </div>
+        </section>
+        <!-- /Faq Section -->
 
-                      </div>
 
-                    </section><!-- /Faq Section -->
 
-                    <!-- Contact Section -->
-                    <section id="contact" class="contact section">
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
 
-                      <!-- Section Title -->
-                      <div class="container section-title" data-aos="fade-up">
-                        <h2>Contact</h2>
-                        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-                      </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contáctanos</h2>
+                <p> ¿Tienes alguna consulta? Nuestro equipo está listo para brindarte información sobre nuestras
+                    especialidades, servicios y atención médica. </p>
+            </div><!-- End Section Title -->
 
-                      <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-                        <iframe style="border:0; width: 100%; height: 370px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                      </div><!-- End Google Maps -->
+            <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border:0; width: 100%; height: 370px;"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.353562078959!2d-77.07136582517406!3d-12.087930488152061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c9a7f03b363d%3A0xcec1a5aa885b53b5!2sAv%20Antonio%20Jos%C3%A9%20de%20Sucre%201136%2C%20Magdalena%20del%20Mar%20LIMA%2017!5e0!3m2!1ses!2spe!4v1788885660786!5m2!1ses!2spe"
+                    frameborder="0" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div><!-- End Google Maps -->
 
-                      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
 
+                    <div class="col-lg-6">
                         <div class="row gy-4">
-                          <div class="col-lg-6 ">
+
+                            <!-- Dirección -->
+                            <div class="col-lg-12">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                    data-aos="fade-up" data-aos-delay="200">
+
+                                    <i class="bi bi-geo-alt"></i>
+                                    <h3>Dirección</h3>
+                                    <p>
+                                        Av. Sucre 1136, Magdalena del Mar, Lima - Perú
+                                    </p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+
+                            <!-- Teléfono -->
+                            <div class="col-md-6">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                    data-aos="fade-up" data-aos-delay="300">
+
+                                    <i class="bi bi-telephone"></i>
+                                    <h3>Teléfono</h3>
+                                    <p>
+                                        +51 913 557 016
+                                    </p>
+                                </div>
+                            </div><!-- End Info Item -->
+
+
+                            <!-- Correo -->
+                            <div class="col-md-6">
+                                <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                                    data-aos="fade-up" data-aos-delay="400">
+
+                                    <i class="bi bi-envelope"></i>
+                                    <h3>Correo electrónico</h3>
+                                    <p>
+                                        info@ceosalud.pe
+                                    </p>
+                                </div>
+                            </div><!-- End Info Item -->
+                        </div>
+                    </div>
+
+
+                    <!-- Contact Form -->
+                    <div class="col-lg-6">
+
+                        <form action="#" method="post" class="php-email-form" data-aos="fade-up"
+                            data-aos-delay="500">
+
                             <div class="row gy-4">
 
-                              <div class="col-lg-12">
-                                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-                                  <i class="bi bi-geo-alt"></i>
-                                  <h3>Address</h3>
-                                  <p>A108 Adam Street, New York, NY 535022</p>
-                                </div>
-                              </div><!-- End Info Item -->
-
-                              <div class="col-md-6">
-                                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
-                                  <i class="bi bi-telephone"></i>
-                                  <h3>Call Us</h3>
-                                  <p>+1 5589 55488 55</p>
-                                </div>
-                              </div><!-- End Info Item -->
-
-                              <div class="col-md-6">
-                                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
-                                  <i class="bi bi-envelope"></i>
-                                  <h3>Email Us</h3>
-                                  <p>info@example.com</p>
-                                </div>
-                              </div><!-- End Info Item -->
-
-                            </div>
-                          </div>
-
-                          <div class="col-lg-6">
-                            <form action="#" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-                              <div class="row gy-4">
-
+                                <!-- Nombre -->
                                 <div class="col-md-6">
-                                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                    <input type="text" name="name" class="form-control"
+                                        placeholder="Nombre completo" required>
                                 </div>
 
-                                <div class="col-md-6 ">
-                                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                                <!-- Correo -->
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email"
+                                        placeholder="Correo electrónico" required>
                                 </div>
 
+                                <!-- Asunto -->
                                 <div class="col-md-12">
-                                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                    <input type="text" class="form-control" name="subject" placeholder="Asunto"
+                                        required>
                                 </div>
 
+                                <!-- Mensaje -->
                                 <div class="col-md-12">
-                                  <textarea class="form-control" name="message" rows="4" placeholder="Message" required=""></textarea>
+                                    <textarea class="form-control" name="message" rows="4" placeholder="Escribe tu mensaje" required></textarea>
                                 </div>
 
+                                <!-- Botón -->
                                 <div class="col-md-12 text-center">
-                                  <div class="loading">Loading</div>
-                                  <div class="error-message"></div>
-                                  <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                                  <button type="submit">Send Message</button>
+                                    <div class="loading">
+                                        Enviando mensaje...
+                                    </div>
+
+                                    <div class="error-message"></div>
+
+                                    <div class="sent-message">
+                                        ¡Tu mensaje ha sido enviado correctamente!
+                                        Gracias por comunicarte con CEO Salud.
+                                    </div>
+
+                                    <button type="submit">
+                                        Enviar mensaje
+                                    </button>
                                 </div>
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
+                </div>
+            </div>
+        </section>
+        <!-- /Contact Section -->
 
-                              </div>
-                            </form>
-                          </div><!-- End Contact Form -->
+    </main>
 
-                        </div>
+    <footer id="footer" class="footer light-background">
 
-                      </div>
-
-                    </section><!-- /Contact Section -->
-
-                  </main>
-
-                  <footer id="footer" class="footer light-background">
-
-                <div class="container footer-top">
-                  <div class="row gy-4">
-                    <div class="col-lg-4 col-md-6 footer-about">
-                      <a href="index.html" class="logo d-flex align-items-center">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
                         <span class="sitename">Medicio</span>
-                      </a>
-                      <div class="footer-contact pt-3">
+                    </a>
+                    <div class="footer-contact pt-3">
                         <p>A108 Adam Street</p>
                         <p>New York, NY 535022</p>
                         <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
                         <p><strong>Email:</strong> <span>info@example.com</span></p>
-                      </div>
-                      <div class="social-links d-flex mt-4">
+                    </div>
+                    <div class="social-links d-flex mt-4">
                         <a href=""><i class="bi bi-twitter-x"></i></a>
                         <a href=""><i class="bi bi-facebook"></i></a>
                         <a href=""><i class="bi bi-instagram"></i></a>
                         <a href=""><i class="bi bi-linkedin"></i></a>
-                      </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Useful Links</h4>
-                      <ul>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Terms of service</a></li>
                         <li><a href="#">Privacy policy</a></li>
-                      </ul>
-                    </div>
+                    </ul>
+                </div>
 
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Our Services</h4>
-                      <ul>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
                         <li><a href="#">Web Design</a></li>
                         <li><a href="#">Web Development</a></li>
                         <li><a href="#">Product Management</a></li>
                         <li><a href="#">Marketing</a></li>
                         <li><a href="#">Graphic Design</a></li>
-                      </ul>
-                    </div>
+                    </ul>
+                </div>
 
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Hic solutasetp</h4>
-                      <ul>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Hic solutasetp</h4>
+                    <ul>
                         <li><a href="#">Molestiae accusamus iure</a></li>
                         <li><a href="#">Excepturi dignissimos</a></li>
                         <li><a href="#">Suscipit distinctio</a></li>
                         <li><a href="#">Dilecta</a></li>
                         <li><a href="#">Sit quas consectetur</a></li>
-                      </ul>
-                    </div>
+                    </ul>
+                </div>
 
-                    <div class="col-lg-2 col-md-3 footer-links">
-                      <h4>Nobis illum</h4>
-                      <ul>
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4>Nobis illum</h4>
+                    <ul>
                         <li><a href="#">Ipsam</a></li>
                         <li><a href="#">Laudantium dolorum</a></li>
                         <li><a href="#">Dinera</a></li>
                         <li><a href="#">Trodelas</a></li>
                         <li><a href="#">Flexo</a></li>
-                      </ul>
-                    </div>
-
-                  </div>
+                    </ul>
                 </div>
 
-                <div class="container copyright text-center mt-4">
-                  <p>© <span>Copyright</span> <strong class="px-1 sitename">Ceo Salud</strong> <span>@</span></p>
-                 
-                  {{--
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Ceo Salud</strong> <span>@</span></p>
+
+            {{--
               <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you've purchased the pro version. -->
@@ -1227,13 +1585,14 @@
                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
               </div>
               --}}
-                </div>
+        </div>
 
-              </footer>
+    </footer>
 
-              <!-- Scroll Top -->
-              <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-              <!-- Preloader -->
-              <div id="preloader"></div>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 @endsection
