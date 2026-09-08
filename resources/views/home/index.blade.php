@@ -1516,7 +1516,7 @@
                         <p>Av. Sucre 1136, Magdalena del Mar, Lima - Perú</p>
                         <p>Lima, Perú</p>
                         <p class="mt-3"><strong>Celular:</strong> <span>+51913557016</span></p>
-                        <p><strong>:</strong> <span></span></p>
+                        <p><strong></strong> <span></span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
                         <a href=""><i class="bi bi-twitter-x"></i></a>
