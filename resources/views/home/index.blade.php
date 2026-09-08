@@ -1510,13 +1510,13 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">Medicio</span>
+                        <span class="sitename">Ceo Salud</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>Av. Sucre 1136, Magdalena del Mar, Lima - Perú</p>
+                        <p>Lima, Perú</p>
+                        <p class="mt-3"><strong>Celular:</strong> <span>+51913557016</span></p>
+                        <p><strong>:</strong> <span></span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
                         <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -1527,46 +1527,45 @@
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Accesos directos</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#hero" class="active">Home</a></li>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#services">Servicios</a></li>
+                        <li><a href="#departments">Especialidades</a></li>
+                        <li><a href="#">Politica de la empresa</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
+                    <h4>Servicios</h4>
                     <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#services">Manejo de heridas</a></li>
+                        <li><a href="#services">Laboratorio</a></li>
+                        <li><a href="#services">Radiografías</a></li>
+                        <li><a href="#services">Ecografías</a></li>
+                        <li><a href="#services">Colocación y retiro de hieso</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Hic solutasetp</h4>
+                    <h4>Especialidades</h4>
                     <ul>
-                        <li><a href="#">Molestiae accusamus iure</a></li>
-                        <li><a href="#">Excepturi dignissimos</a></li>
-                        <li><a href="#">Suscipit distinctio</a></li>
-                        <li><a href="#">Dilecta</a></li>
-                        <li><a href="#">Sit quas consectetur</a></li>
+                        <li><a href="#departments">Traumatología</a></li>
+                        <li><a href="#departments">Medicina Física y Rehabilitación</a></li>
+                        <li><a href="#departments">Endocrinología</a></li>
+                        <li><a href="#departments">Cardiología</a></li>
+                        <li><a href="#departments">Radiología</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Nobis illum</h4>
+                    <h4>Redes sociales</h4>
                     <ul>
-                        <li><a href="#">Ipsam</a></li>
-                        <li><a href="#">Laudantium dolorum</a></li>
-                        <li><a href="#">Dinera</a></li>
-                        <li><a href="#">Trodelas</a></li>
-                        <li><a href="#">Flexo</a></li>
+                        <li><a href="https://www.facebook.com/ceosalud.peru/" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/ceosalud.pe/?hl=es" target="_blank">Instagram</a></li>
+                        <li><a href="https://pe.linkedin.com/company/ceo-salud-peru" target="_blank">Linkedin</a></li>
+                        <li><a href="https://www.tiktok.com/@ceosalud.pe" target="_blank">Tiktok</a></li>
                     </ul>
                 </div>
 
@@ -1574,7 +1573,7 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Ceo Salud</strong> <span>@</span></p>
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Ceo Salud</strong> <span></span></p>
 
             {{--
               <div class="credits">
