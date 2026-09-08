@@ -5,8 +5,51 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Ceo Salud - tu bienestar es lo primero</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+
+    {{-- CEO --}}
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "CEO Salud",
+    "url": "https://ceosalud.com/",
+    "logo": "https://ceosalud.com/assets/img/logo.png",
+    "description": "CEO Salud es un centro de salud que brinda atención médica y servicios de salud orientados al cuidado, prevención y bienestar de sus pacientes.",
+    "sameAs": [
+        "https://www.facebook.com/ceosalud.peru//",
+        "https://www.instagram.com/ceosalud.pe/?hl=es",
+        "https://pe.linkedin.com/company/ceo-salud-peru",
+        "https://www.tiktok.com/@ceosalud.pe"
+    ]
+}
+</script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CEO Salud | Centro de Salud">
+    <meta property="og:description"
+        content="CEO Salud brinda atención médica y servicios de salud orientados al cuidado, prevención y bienestar de nuestros pacientes.">
+    <meta property="og:image" content="https://ceosalud.com/assets/img/logo.png">
+    <meta property="og:url" content="https://ceosalud.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CEO Salud">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CEO Salud | Centro de Salud">
+    <meta name="twitter:description"
+        content="Conoce los servicios de salud y atención médica que ofrece CEO Salud para el cuidado y bienestar de sus pacientes.">
+    <meta name="twitter:image" content="https://ceosalud.com/assets/img/logo.png">
+
+    <!-- SEO -->
+    <meta name="description"
+        content="CEO Salud es un centro de salud que brinda atención médica y servicios de salud para el cuidado, prevención y bienestar de sus pacientes. Conoce nuestros servicios y especialidades.">
+
+    <meta name="keywords"
+        content="CEO Salud, centro de salud, atención médica, servicios de salud, consultas médicas, médicos, especialistas, salud, bienestar, prevención, atención de pacientes, centro médico, salud Perú">
+
+    <meta name="author" content="CEO Salud">
+
 
     <!-- Favicons -->
     <link href="{{ asset('assets/img/logo.png') }}" rel="icon">
