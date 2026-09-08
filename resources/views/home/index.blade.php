@@ -20,7 +20,7 @@
         <div class="branding d-flex align-items-center">
 
             <div class="container position-relative d-flex align-items-center justify-content-end">
-                <a href="index.html" class="logo d-flex align-items-center me-auto">
+                <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="">
                     <!-- Uncomment the line below if you also wish to use a text logo -->
                     <!-- <h1 class="sitename">Medicio</h1>  -->
@@ -1509,7 +1509,7 @@
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
+                    <a href="{{ route('home') }}" class="logo d-flex align-items-center">
                         <span class="sitename">Ceo Salud</span>
                     </a>
                     <div class="footer-contact pt-3">
